@@ -9,7 +9,7 @@ parentRouter
   // })
 
   .get('/me', async (req, res, next) => {
-    const parent = await db.find(req.userId)
+    const parent = await db.findById(req.userId)
     return res.status(200).json(parent)
   })
 
