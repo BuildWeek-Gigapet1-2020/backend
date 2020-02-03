@@ -8,6 +8,11 @@ parentRouter
   //   return res.status(200).json(parents)
   // })
 
+  .get('/me', async (req, res, next) => {
+    const parent = await db.find(req.userId)
+    return res.status(200).json(parent)
+  })
+
   .get('/:id', validateParentId(), (req, res, next) => {
     try {
       return res.status(200).json(req.parent)
