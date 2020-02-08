@@ -8,7 +8,9 @@ class Model {
     return db(this.tableName)
   }
   findBy(filter) {
-    return db(this.tableName).where(filter)
+    return db(this.tableName)
+      .where(filter)
+      .first()
   }
   add(newItem) {
     return db(this.tableName)
