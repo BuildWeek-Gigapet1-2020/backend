@@ -2,7 +2,7 @@ const { Food } = require('../models/Model')
 
 function validateFoodId() {
   return async (req, res, next) => {
-    const [food] = await Food.findBy({ id: req.params.id })
+    const food = await Food.findBy({ id: req.params.id })
 
     if (!food) {
       return res.status(404).json({
