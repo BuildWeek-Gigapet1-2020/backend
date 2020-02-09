@@ -1,9 +1,9 @@
-const db = require('../models/Child-models')
+const { Child } = require('../models/Model')
 
 function validateChildId() {
   return async (req, res, next) => {
     try {
-      const child = await db.findById(req.params.id)
+      const child = await Child.findById(req.params.id)
       req.child = child
       next()
     } catch (error) {

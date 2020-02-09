@@ -1,7 +1,7 @@
 const authRouter = require('express').Router()
 const bcrypt = require('bcryptjs')
 const generateToken = require('../../token/generateToken')
-const Parents = require('../../models/Parent-models')
+const { Parent } = require('../../models/Model')
 const { validateRegister, validateLogin } = require('../../middleware/validate')
 const sendgrid = require('../../utils/sendgrid')
 const twilio = require('../../utils/twilio')
@@ -21,7 +21,7 @@ authRouter
         const hashPw = await bcrypt.hash(user.password, 12)
         user.password = hashPw
 
-        await Parents.add(user)
+        await Parent.add(user)
         return res
           .status(201)
           .json({ message: 'You have been successfully registered' })
@@ -40,7 +40,7 @@ authRouter
     async (req, res, next) => {
       try {
         const { username, password } = req.body
-        const user = await Parents.findBy({ username })
+        const user = await Parent.findBy({ username })
         const verifyPw = await bcrypt.compare(password, user.password)
 
         if (user && verifyPw) {
@@ -72,13 +72,13 @@ authRouter
   .post('/reset-password', resetLimiter, async (req, res, next) => {
     try {
       const { email, new_password } = req.body
-      let user = await Parents.findBy({ email: email })
+      let user = await Parent.findBy({ email: email })
       const hashPw = await bcrypt.hash(new_password, 12)
       let updatedParent = {
         ...user,
         password: hashPw
       }
-      await Parents.update(user.id, updatedParent)
+      await Parent.update(user.id, updatedParent)
       return res.status(200).json({ message: 'Password successfully updated' })
     } catch (error) {
       next(error)

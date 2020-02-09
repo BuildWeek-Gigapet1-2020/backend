@@ -8,7 +8,9 @@ class Model {
     return db(this.tableName)
   }
   findBy(filter) {
-    return db(this.tableName).where(filter)
+    return db(this.tableName)
+      .where(filter)
+      .first()
   }
   add(newItem) {
     return db(this.tableName)
@@ -28,8 +30,26 @@ class Model {
   }
 }
 
+class Children extends Model {
+  constructor(tableName) {
+    super(tableName)
+    this.tableName = tableName
+  }
+
+  async findById(id) {
+    const child_food = await Food.findBy({ child_id: id })
+    const child = await Child.findBy({ id }).first()
+    const monster = await Monster.findBy({ id: child.monster_id })
+    return {
+      child,
+      child_food,
+      monster
+    }
+  }
+}
+
 const Parent = new Model('parents')
-const Child = new Model('child')
+const Child = new Children('child')
 const Food = new Model('foods')
 const Monster = new Model('monsters')
 
