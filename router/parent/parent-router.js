@@ -1,10 +1,10 @@
 const parentRouter = require('express').Router()
-const db = require('../../models/Parent-models')
+const { Parent } = require('../../models/Model')
 const { validateParentId } = require('../../middleware/validateParent')
 
 parentRouter
   .get('/', async (req, res, next) => {
-    const [parent] = await db.findById(req.userId)
+    const parent = await Parent.findById(req.userId)
     return res.status(200).json(parent)
   })
 
@@ -18,7 +18,7 @@ parentRouter
 
   .put('/:id', validateParentId(), async (req, res, next) => {
     try {
-      const newParent = await db.update(req.parent.id, req.body)
+      const newParent = await Parent.update(req.parent.id, req.body)
       return res.status(200).json(newParent)
     } catch (error) {
       next(error)
@@ -27,7 +27,7 @@ parentRouter
 
   .delete('/:id', validateParentId(), async (req, res, next) => {
     try {
-      await db.remove(req.params.id)
+      await Parent.remove(req.params.id)
       return res.status(200).json({ message: 'User deleted' })
     } catch (error) {
       next(error)

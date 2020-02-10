@@ -5,7 +5,7 @@ const { Parent } = require('../models/Model')
 function validateParentId() {
   return async (req, res, next) => {
     try {
-      const [parent] = await Parent.findBy({ id: req.params.id })
+      const parent = await Parent.findBy({ id: req.params.id })
       if (!parent) {
         return res.status(404).json({ message: 'Parent not found' })
       } else {

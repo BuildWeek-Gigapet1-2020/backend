@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1581297725298" clover="3.2.0">
   <project timestamp="1581297725298" name="All files">
     <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+=======
+<coverage generated="1581132139157" clover="3.2.0">
+  <project timestamp="1581132139157" name="All files">
+    <metrics statements="29" coveredstatements="29" conditionals="22" coveredconditionals="22" methods="8" coveredmethods="8" elements="59" coveredelements="59" complexity="0" loc="29" ncloc="29" packages="1" files="2" classes="2"/>
+    <file name="validate.js" path="/Users/Ray-Thurman/Documents/WEBPT8/backend/middleware/validate.js">
+      <metrics statements="16" coveredstatements="16" conditionals="14" coveredconditionals="14" methods="4" coveredmethods="4"/>
+      <line num="1" count="5" type="stmt"/>
+      <line num="13" count="5" type="stmt"/>
+      <line num="14" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="23" count="6" type="stmt"/>
+      <line num="24" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="25" count="4" type="stmt"/>
+      <line num="28" count="2" type="stmt"/>
+      <line num="29" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="30" count="1" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="44" count="5" type="stmt"/>
+      <line num="45" count="6" type="cond" truecount="4" falsecount="0"/>
+      <line num="46" count="1" type="stmt"/>
+      <line num="51" count="5" type="stmt"/>
+      <line num="55" count="5" type="stmt"/>
+    </file>
+    <file name="validateFood.js" path="/Users/Ray-Thurman/Documents/WEBPT8/backend/middleware/validateFood.js">
+      <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="8" methods="4" coveredmethods="4"/>
+      <line num="1" count="5" type="stmt"/>
+      <line num="4" count="15" type="stmt"/>
+      <line num="5" count="6" type="stmt"/>
+      <line num="7" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="8" count="3" type="stmt"/>
+      <line num="13" count="3" type="stmt"/>
+      <line num="14" count="3" type="stmt"/>
+      <line num="19" count="5" type="stmt"/>
+      <line num="20" count="2" type="stmt"/>
+      <line num="22" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="35" count="5" type="stmt"/>
+    </file>
+>>>>>>> 62f22e5d2235db9fd1304123c06b22e68b642565
   </project>
 </coverage>
