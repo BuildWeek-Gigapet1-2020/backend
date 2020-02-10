@@ -1,14 +1,5 @@
 const { Parent } = require('../models/Model')
-/* check for all credentials for register
- * parent_name
- * username
- * password
- * email
- *
- * Check to see if email is used
- *
- * Check to see if username is used
- */
+
 function validateRegister() {
   return async (req, res, next) => {
     if (
